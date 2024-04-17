@@ -10,9 +10,13 @@ class kocsonzo:
         
 f = open("kolcsonzesek.txt", "r", encoding="utf-8")
 
+napisz = -1
+for sor in f:
+    napisz += 1
 
-kolcsonzo = {}
+print("5. feladat: Napi kölcsönzések száma: ",napisz )
 
+"""kolcsonzo = {}
 for sor in f:
     sor = sor.split(';')
     if sor[1] in kolcsonzo.keys():
@@ -21,4 +25,4 @@ for sor in f:
         kolcsonzo[sor[1]] = 1
 
 for k,v in kolcsonzo.items():
-    print(k,v)
+    print(k,v)"""
