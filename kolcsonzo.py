@@ -8,15 +8,15 @@ class Kolcsonzes:
         self.visszaperc = visszaperc
         
     def __str__(self):
-        return f"{self.nev}{self.jarmuazonosito}{self.elvitelora}{self.elvitelperc}{self.visszaora}{self.visszaperc}"
+        return f"{self.nev} {self.jarmuazonosito} {self.elvitelora} {self.elvitelperc} {self.visszaora} {self.visszaperc}"
         
 f = open("kolcsonzesek.txt", "r", encoding="utf-8")
 f.readline()
 lista = []
 
 for sor in f:
-    tmp = sor.strip().split(";")
-    lista.append(Kolcsonzes(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5]))
+    sor = sor.strip().split(";")
+    lista.append(Kolcsonzes(sor[0],sor[1],sor[2],sor[3],sor[4],sor[5]))
 
 f = open("kolcsonzesek.txt", "r", encoding="utf-8")
 f.readline()
@@ -32,9 +32,13 @@ for line in f:
     else:
         kolcsonzes[line[1]] =1
     db +=1
-print("5. feladat")
-print(f"{db} kölcsönzés adatai vannak a forrásban")
+print(f"5. feladat: {db} kölcsönzés adatai vannak a forrásban")
 
+nev = input("Adja meg a nevet: ")
+
+for sor in lista:
+    if nev == "":   
+        print(f"{sor[2]}:{sor[3]}-{sor[4]}:{sor[5]}")
 
 
 
